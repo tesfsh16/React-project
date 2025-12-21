@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
 
-function App() {
-  
 
-  return (
-    <>
-      <h1>Hello world</h1>
-    </>
-  )
+function App() {
+  const [todos, setTodos] = useState([]);
+  const [input, setInput] = useState("");
+  const addTodo = () => {
+    if (input.trim() === "") return
+   
+  
+  }
+  return;
+
 }
 
 export default App
