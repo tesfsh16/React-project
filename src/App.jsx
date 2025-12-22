@@ -5,9 +5,21 @@ import './App.css'
 function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
+ 
   const addTodo = () => {
     if (input.trim() === "") return
    
+    setTodos([
+      ...todos,
+      {
+        id: Date.now(),
+        text: input,
+        completed: false,
+      },
+    ]);
+    setInput("");
+  };
+
   
   }
   return;
