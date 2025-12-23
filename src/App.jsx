@@ -1,14 +1,13 @@
-import React, { useState } from 'react'
-import './App.css'
-
+import { useState } from "react";
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
- 
+
+  // Add new todo
   const addTodo = () => {
-    if (input.trim() === "") return
-   
+    if (input.trim() === "") return;
+
     setTodos([
       ...todos,
       {
@@ -17,13 +16,24 @@ function App() {
         completed: false,
       },
     ]);
+
     setInput("");
   };
 
+  // Toggle complete
+  const toggleTodo = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
   
-  }
-  return;
 
-}
+  return 
+    
+  
+};
 
-export default App
+export default App;
