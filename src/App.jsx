@@ -20,6 +20,20 @@ function App() {
     setInput("");
   };
 
+  // edit todos
+  function editTodo(id){
+    const newTask = prompt("Write the correct task");
+    if (newTask === null || newTask.trim() === "") return;
+
+   setTodos(
+    todos.map((todo) =>
+      todo.id === id
+        ? { ...todo, text: newTask }
+        : todo
+    )
+  );
+  }
+
   // Toggle complete
   const toggleTodo = (id) => {
     setTodos(
@@ -54,6 +68,7 @@ function App() {
         {todos.map((todo) => (
           <li key={todo.id}>
             <span onClick={() => toggleTodo(todo.id)}>{todo.text}</span>
+            <button onClick={() => editTodo(todo.id)}>Edit</button>
             <button
               onClick={() => toggleTodo(todo.id)}
               style={{
